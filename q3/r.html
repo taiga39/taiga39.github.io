@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>mario</title>
+  </head>
+  <body>
+    <div id="start">
+      start
+    </div>
+    <iframe id ="game" src="https://www.retrogames.cc/embed/21929-super-mario-bros-europe-rev-0a.html" width="960" height="540" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
+  </body>
+</html>
+
+<style>
+  html {margin:0}
+  body {margin:0}
+
+</style>
+
+<script>
+var KEvent = new KeyboardEvent( "keydown", { keyCode: 13 });
+play_btn = document.getElementById("start");
+play_btn.addEventListener( 'click' , play );
+var target
+var game
+document.addEventListener('DOMContentLoaded', event => {
+  document.getElementById('game').onload = (e) => {
+    game = document.getElementById('game')
+    console.log(game)
+    target = game.contentWindow.document.querySelector('body');
+    console.log(target)
+  };
+});
+
+function play() {
+  document.dispatchEvent( KEvent );
+  console.log(target)
+}
+
+</script>
