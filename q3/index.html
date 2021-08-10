@@ -23,10 +23,13 @@ var KEvent = new KeyboardEvent( "keydown", { keyCode: 13 });
 play_btn = document.getElementById("start");
 play_btn.addEventListener( 'click' , play );
 var target
+var game
 document.addEventListener('DOMContentLoaded', event => {
-  document.getElementById('game').onload = () => {
-    alert("読込完了");
+  document.getElementById('game').onload = (e) => {
+    game = document.getElementById('game')
+    console.log(game)
     target = game.contentWindow.document.querySelector('body');
+    console.log(target)
   };
 });
 
